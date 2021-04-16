@@ -21,4 +21,20 @@ public class Mail {
       this.bcc = bcc;
       this.message = message;
    }
+
+   public String getMailData() {
+      StringBuilder data = new StringBuilder();
+      data.append("From: ").append(from.getEmail()).append("\n");
+      data.append("To: ");
+      for (int i = 0; i < to.getMembers().size(); ++i) {
+         data.append(to.getMembers().get(i));
+         if (i != to.getMembers().size() - 1) {
+            data.append(",");
+         } else {
+            data.append("\n");
+         }
+      } data.append("Subject: ").append(message.getSubject()).append(message.getBody());
+      return data.toString();
+   }
+
 }

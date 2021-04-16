@@ -5,17 +5,15 @@
  */
 package ch.heigvd.res.lab4.config;
 
+import ch.heigvd.res.lab4.prank.mail.Message;
 import lombok.Getter;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Properties;
 
 public class ConfigurationManager {
-   @Getter private ArrayList<String> messages;
+   @Getter private ArrayList<Message> messages;
    @Getter private ArrayList<String> victims;
    @Getter private String smtpServerAddress;
    @Getter private int smtpServerPort;
@@ -24,8 +22,9 @@ public class ConfigurationManager {
 
    public ConfigurationManager() {
       try {
-         String rootPath = new File(".").getAbsolutePath();
-         String appConfigPath = rootPath + "app.properties";
+         //Get properties
+         String rootPath = new File(".").getAbsolutePath() + "/config";
+         String appConfigPath = rootPath + "/app.properties";
 
          Properties appProps = new Properties();
          appProps.load(new FileInputStream(appConfigPath));
@@ -35,10 +34,38 @@ public class ConfigurationManager {
          numberOfGroups = Integer.parseInt(appProps.getProperty("numberOfGroups"));
          witnessToCC = appProps.getProperty("witnessToCC");
 
+         //Get victims
+         BufferedReader reader = new BufferedReader(new FileReader(rootPath + "/victims.txt"));
+         String victim = reader.readLine();
+         victims = new ArrayList<>();
+         while (victim != null) {
+            victims.add(victim);
+            victim = reader.readLine();
+         }
+
+         //Get messages
+         reader = new BufferedReader(new FileReader(rootPath + "/messages.txt"));
+         loadMessages(reader);
       } catch (FileNotFoundException e) {
          e.printStackTrace();
       } catch (IOException e) {
          e.printStackTrace();
       }
+   }
+
+   private void loadMessages(BufferedReader reader) throws IOException {
+      messages = new ArrayList<>();
+      String subject = reader.readLine();
+      do {
+         String body = "";
+         String line = reader.readLine();
+         while (!line.equals("==")) {
+            body += line;
+            line = reader.readLine();
+         }
+         Message m = new Message(subject, body);
+         messages.add(m);
+         subject = reader.readLine();
+      } while (subject!= null && !subject.equals(""));
    }
 }
