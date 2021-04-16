@@ -25,7 +25,6 @@ public class PrankGenerator {
    public ArrayList<Mail> generatePranks(){
       // TODO: 16 avr. 2021 add prank generation getting the victims and messages from the configurationManager
       ArrayList<Mail> mails = new ArrayList<>();
-      Group bcc = new Group();
       Person personBCC = new Person(configurationManager.getWitnessToCC());
       int nbInGroup = configurationManager.getVictims().size() / configurationManager.getNumberOfGroups();
       if (nbInGroup >= 3) {
@@ -39,6 +38,7 @@ public class PrankGenerator {
                for (int j = 1; i < victims.size(); ++i) {
                   to.addMember(new Person(victims.get(j)));
                }
+               to.addMember(personBCC);
                mails.add(new Mail(from, to, null, null, configurationManager.getMessages().get(i)));
             } else {
                List<String> victims = configurationManager.getVictims().subList(i * nbInGroup, configurationManager.getVictims().size() - 1);
@@ -47,7 +47,8 @@ public class PrankGenerator {
                for (int j = 1; i < victims.size(); ++i) {
                   to.addMember(new Person(victims.get(j)));
                }
-               mails.add(new Mail(from, to, null, bcc, configurationManager.getMessages().get(i)));
+               to.addMember(personBCC);
+               mails.add(new Mail(from, to, null, null, configurationManager.getMessages().get(i)));
             }
          }
       }
