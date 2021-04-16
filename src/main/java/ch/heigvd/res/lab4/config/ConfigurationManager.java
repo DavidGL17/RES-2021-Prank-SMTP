@@ -5,6 +5,7 @@
  */
 package ch.heigvd.res.lab4.config;
 
+import ch.heigvd.res.lab4.prank.mail.Message;
 import lombok.Getter;
 
 import java.io.File;
@@ -15,7 +16,7 @@ import java.util.ArrayList;
 import java.util.Properties;
 
 public class ConfigurationManager {
-   @Getter private ArrayList<String> messages;
+   @Getter private ArrayList<Message> messages;
    @Getter private ArrayList<String> victims;
    @Getter private String smtpServerAddress;
    @Getter private int smtpServerPort;
