@@ -1,0 +1,12 @@
+Subject: reussir ce labo
+
+Bonjour,
+
+Je pense que pour reussir ce labo il faudrait ne pas oublier un mitex.leave();
+
+Cordialement,
+
+ma moyenne
+
+==
+...
