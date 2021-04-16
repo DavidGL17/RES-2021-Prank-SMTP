@@ -33,7 +33,7 @@ public class Mail {
          } else {
             data.append("\n");
          }
-      } data.append("Subject: ").append(message.getSubject()).append(message.getBody());
+      } data.append(message.getSubject()).append(message.getBody());
       return data.toString();
    }
 
