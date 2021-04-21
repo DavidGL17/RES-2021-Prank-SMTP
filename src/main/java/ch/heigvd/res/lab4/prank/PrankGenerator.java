@@ -29,26 +29,24 @@ public class PrankGenerator {
       int nbInGroup = configurationManager.getVictims().size() / configurationManager.getNumberOfGroups();
       if (nbInGroup >= 3) {
          Collections.shuffle(configurationManager.getVictims());
-         Collections.shuffle(configurationManager.getMessages());
-         for (int i = 0; i < nbInGroup; ++i) {
-            if (i != nbInGroup - 1) {
-               List<String> victims = configurationManager.getVictims().subList(i * nbInGroup, nbInGroup - 1 + i * nbInGroup);
+         for (int i = 0; i < configurationManager.getNumberOfGroups(); ++i) {
+            Collections.shuffle(configurationManager.getMessages()); // TODO: 16 avr. 2021 faire vérife pour pas shuffle a chaque fois
+            if (i != configurationManager.getNumberOfGroups() - 1) {
+               List<String> victims = configurationManager.getVictims().subList(i * nbInGroup, nbInGroup + i * nbInGroup);
                Person from = new Person(victims.get(0));
                Group to = new Group();
-               for (int j = 1; i < victims.size(); ++i) {
+               for (int j = 1; j < victims.size(); ++j) {
                   to.addMember(new Person(victims.get(j)));
                }
-               to.addMember(personBCC);
-               mails.add(new Mail(from, to, null, null, configurationManager.getMessages().get(i)));
+               mails.add(new Mail(from, to, null, null, configurationManager.getMessages().get(0)));
             } else {
-               List<String> victims = configurationManager.getVictims().subList(i * nbInGroup, configurationManager.getVictims().size() - 1);
+               List<String> victims = configurationManager.getVictims().subList(i * nbInGroup, configurationManager.getVictims().size());
                Person from = new Person(victims.get(0));
                Group to = new Group();
-               for (int j = 1; i < victims.size(); ++i) {
+               for (int j = 1; j < victims.size(); ++j) {
                   to.addMember(new Person(victims.get(j)));
                }
-               to.addMember(personBCC);
-               mails.add(new Mail(from, to, null, null, configurationManager.getMessages().get(i)));
+               mails.add(new Mail(from, to, null, bcc, configurationManager.getMessages().get(0)));
             }
          }
       }

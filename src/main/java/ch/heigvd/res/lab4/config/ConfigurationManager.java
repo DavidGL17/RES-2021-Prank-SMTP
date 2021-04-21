@@ -23,8 +23,8 @@ public class ConfigurationManager {
    public ConfigurationManager() {
       try {
          //Get properties
-         String rootPath = new File(".").getAbsolutePath() + "/config";
-         String appConfigPath = rootPath + "/app.properties";
+         String rootPath = new File(".").getCanonicalPath() + "/config";
+         String appConfigPath = rootPath + "/config.properties";
 
          Properties appProps = new Properties();
          appProps.load(new FileInputStream(appConfigPath));

@@ -14,7 +14,6 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.Socket;
-import java.util.ArrayList;
 import java.util.logging.Logger;
 
 public class SMTPClient {
@@ -37,29 +36,29 @@ public class SMTPClient {
          waitForResponse(is);
          send(os, "EHLO client");
          waitForResponse(is);
-         send(os, "MAIL FROM: " + mail.getFrom());
+         send(os, "MAIL FROM: " + mail.getFrom().getEmail());
          waitForResponse(is);
          Group to = mail.getTo();
          for (Person p : to.getMembers()) {
-            send(os, "RCPT TO:" + p.getEmail());
+            send(os, "RCPT TO: " + p.getEmail());
             waitForResponse(is);
          }
          // TODO: 16 avr. 2021 add cc and bcc
-         send(os,"DATA");
+         send(os, "DATA");
          waitForResponse(is);
-         send(os,mail.getMailData());
-         send(os,"\r\n.\r\n");
+         send(os, mail.getMailData());
+         send(os, "\r\n.\r\n");
       } catch (IOException e) {
          e.printStackTrace();
       }
    }
 
    private void waitForResponse(BufferedReader is) throws IOException {
-      String message = is.readLine();
-      while (message != null) {
-         LOG.info(message);
+      String message;
+      do {
          message = is.readLine();
-      }
+         LOG.info(message);
+      } while (message != null && !(message.contains("220 ") || message.contains("250 ")|| message.contains("354 ")));
    }
 
    private void send(PrintWriter os, String message) {
