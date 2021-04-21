@@ -46,7 +46,7 @@ public class PrankGenerator {
                for (int j = 1; j < victims.size(); ++j) {
                   to.addMember(new Person(victims.get(j)));
                }
-               mails.add(new Mail(from, to, null, bcc, configurationManager.getMessages().get(0)));
+               mails.add(new Mail(from, to, null, null, configurationManager.getMessages().get(0)));
             }
          }
       }
