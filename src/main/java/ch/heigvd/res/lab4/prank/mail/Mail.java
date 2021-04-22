@@ -27,7 +27,7 @@ public class Mail {
       data.append("From: ").append(from.getEmail()).append("\n");
       data.append("To: ");
       for (int i = 0; i < to.getMembers().size(); ++i) {
-         data.append(to.getMembers().get(i));
+         data.append(to.getMembers().get(i).getEmail());
          if (i != to.getMembers().size() - 1) {
             data.append(",");
          } else {
