@@ -29,10 +29,10 @@ public class ConfigurationManager {
          Properties appProps = new Properties();
          appProps.load(new FileInputStream(appConfigPath));
 
-         smtpServerAddress = appProps.getProperty("smtpServerAddress");
-         smtpServerPort = Integer.parseInt(appProps.getProperty("smtpServerPort"));
-         numberOfGroups = Integer.parseInt(appProps.getProperty("numberOfGroups"));
-         witnessToCC = appProps.getProperty("witnessToCC");
+         smtpServerAddress = appProps.getProperty(Options.SERVER_ADDRESS.getParamName());
+         smtpServerPort = Integer.parseInt(appProps.getProperty(Options.SERVER_PORT.getParamName()));
+         numberOfGroups = Integer.parseInt(appProps.getProperty(Options.NUMBER_OF_GROUPS.getParamName()));
+         witnessToCC = appProps.getProperty(Options.WITNESS_TO_CC.getParamName());
 
          //Get victims
          BufferedReader reader = new BufferedReader(new FileReader(rootPath + "/victims.txt"));
@@ -66,6 +66,6 @@ public class ConfigurationManager {
          Message m = new Message(subject, body);
          messages.add(m);
          subject = reader.readLine();
-      } while (subject!= null && !subject.equals(""));
+      } while (subject != null && !subject.equals(""));
    }
 }
