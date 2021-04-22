@@ -48,7 +48,11 @@ public class SMTPClient {
          waitForResponse(is);
          send(os, mail.getMailData());
          send(os, "\r\n.\r\n");
+         socket.close();
+         is.close();
+         os.close();
       } catch (IOException e) {
+         System.out.println("Error while connecting to the server, could not correctly send a mail");
          e.printStackTrace();
       }
    }
@@ -57,12 +61,12 @@ public class SMTPClient {
       String message;
       do {
          message = is.readLine();
-         LOG.info(message);
+         //LOG.info(message);
       } while (message != null && !(message.contains("220 ") || message.contains("250 ")|| message.contains("354 ")));
    }
 
    private void send(PrintWriter os, String message) {
       os.println(message);
-      LOG.info(message);
+      //LOG.info(message);
    }
 }
