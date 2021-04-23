@@ -28,9 +28,11 @@ public class Launcher {
                  new SMTPClient(configurationManager.getSmtpServerAddress(), configurationManager.getSmtpServerPort());
          PrankGenerator generator = new PrankGenerator(configurationManager);
          ArrayList<Mail> mails = generator.generatePranks();
+         System.out.println("Starting to send the mails...");
          for (Mail m : mails) {
             client.sendMail(m);
          }
+         System.out.println("Mails sent!");
       } else {//avec ui
          System.out.println("Welcome to the prank generator. This application can allow you to send prank mails to " +
                             "predifined victims. Bellow are your current options : ");
