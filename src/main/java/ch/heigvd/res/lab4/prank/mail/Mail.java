@@ -26,15 +26,24 @@ public class Mail {
       StringBuilder data = new StringBuilder();
       data.append("From: ").append(from.getEmail()).append("\n");
       data.append("To: ");
-      for (int i = 0; i < to.getMembers().size(); ++i) {
-         data.append(to.getMembers().get(i).getEmail());
-         if (i != to.getMembers().size() - 1) {
+      addDest(data, to);
+      if (cc!=null) {
+         data.append("Cc: ");
+         addDest(data, cc);
+      }
+      data.append(message.getSubject()).append(message.getBody());
+      return data.toString();
+   }
+
+   private void addDest(StringBuilder data, Group group) {
+      for (int i = 0; i < group.getMembers().size(); ++i) {
+         data.append(group.getMembers().get(i).getEmail());
+         if (i != group.getMembers().size() - 1) {
             data.append(",");
          } else {
             data.append("\n");
          }
-      } data.append(message.getSubject()).append(message.getBody());
-      return data.toString();
+      }
    }
 
 }
