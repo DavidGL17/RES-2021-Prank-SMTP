@@ -21,12 +21,15 @@ import java.util.Scanner;
  */
 
 public class Launcher {
+   private static SMTPClient client;
+   private static PrankGenerator generator;
+   private static ConfigurationManager configurationManager;
+
    public static void main(String[] args) {
-      ConfigurationManager configurationManager = new ConfigurationManager();
+      configurationManager = new ConfigurationManager();
+      generator = new PrankGenerator(configurationManager);
       if (args.length == 1 && args[0].equals("-noui")) { //sans ui
-         SMTPClient client =
-                 new SMTPClient(configurationManager.getSmtpServerAddress(), configurationManager.getSmtpServerPort());
-         PrankGenerator generator = new PrankGenerator(configurationManager);
+         client = new SMTPClient(configurationManager.getSmtpServerAddress(), configurationManager.getSmtpServerPort());
          ArrayList<Mail> mails = generator.generatePranks();
          for (Mail m : mails) {
             client.sendMail(m);
@@ -67,15 +70,14 @@ public class Launcher {
                }
             }
             System.out.println("Starting to send the mails...");
-            SMTPClient client =
-                    new SMTPClient(configurationManager.getSmtpServerAddress(), configurationManager.getSmtpServerPort());
-            PrankGenerator generator = new PrankGenerator(configurationManager);
+            client = new SMTPClient(configurationManager.getSmtpServerAddress(),
+                                    configurationManager.getSmtpServerPort());
             ArrayList<Mail> mails = generator.generatePranks();
             int mailCounter = 1;
             for (Mail m : mails) {
-               System.out.println("Sending mail n°"+mailCounter+"...");
+               System.out.println("Sending mail n°" + mailCounter + "...");
                client.sendMail(m);
-               System.out.println("Mail "+mailCounter+" sent!");
+               System.out.println("Mail " + mailCounter + " sent!");
                mailCounter++;
             }
             System.out.println("Mails sent!");
