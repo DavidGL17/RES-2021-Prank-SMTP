@@ -20,12 +20,15 @@ import java.util.Scanner;
  * stopper avec stop
  */
 public class Launcher {
+   private static SMTPClient client;
+   private static PrankGenerator generator;
+   private static ConfigurationManager configurationManager;
+
    public static void main(String[] args) {
-      ConfigurationManager configurationManager = new ConfigurationManager();
+      configurationManager = new ConfigurationManager();
+      generator = new PrankGenerator(configurationManager);
       if (args.length == 1 && args[0].equals("-noui")) { //sans ui
-         SMTPClient client =
-                 new SMTPClient(configurationManager.getSmtpServerAddress(), configurationManager.getSmtpServerPort());
-         PrankGenerator generator = new PrankGenerator(configurationManager);
+         client = new SMTPClient(configurationManager.getSmtpServerAddress(), configurationManager.getSmtpServerPort());
          ArrayList<Mail> mails = generator.generatePranks();
          for (Mail m : mails) {
             client.sendMail(m);
