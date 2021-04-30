@@ -71,19 +71,19 @@ Si l'application n'est pas lancée en mode intéractif, le client enverra les ma
 
 Une fois les fichiers messages.txt et victims.txt complétés, on lance l'application. Au lancement, on obtient le résultat suivant :
 
-![](C:\Users\jaden\Documents\HES BA2\S4\RES_Reseaux\RES-2021-Prank-SMTP\figures\step1.png)
+![](figures/step1.png)
 
 La liste des victimes choisies s'affiche ainsi que la liste des messages qui serviront de prank. Si l'utilisateur est d'accord, il écrit "go" dans la console :
 
-![](C:\Users\jaden\Documents\HES BA2\S4\RES_Reseaux\RES-2021-Prank-SMTP\figures\step2.png)
+![](figures/step2.png)
 
 Une confirmation d'envoi des différents mails s'affichent alors. On peut alors vérifier le bon déroulement de l'opération avec MockMock en vérifiant parmi les différents groupes l'expéditeur, les destinataires et le message de chaque mail :
 
-![](C:\Users\jaden\Documents\HES BA2\S4\RES_Reseaux\RES-2021-Prank-SMTP\figures\step3.png)
+![](figures/step3.png)
 
 Pour quitter l'application, il suffit de rentrer "stop" sur la console :
 
-![](C:\Users\jaden\Documents\HES BA2\S4\RES_Reseaux\RES-2021-Prank-SMTP\figures\step4.png)
+![](figures/step4.png)
 
 ## Implémentation 
 
@@ -95,3 +95,5 @@ La structure de notre application tourne autour de la classe Launcher, qui conti
 Ces 3 classes utilisent les fonctionalités offertes par le package mail, qui lui permet la modélisation de mails, personnes, messages et groupes.
 
 La description des différentes méthodes des classes que nous avons implémentées se trouve sous la forme de javadoc dans le code.
+
+Nous avons testé notre application en utilisant le serveur MockMock, et en loggant les réponses et envois de notre conversation avec le serveur pour vérifier qu'elle était correcte.

@@ -43,13 +43,13 @@ public class SMTPClient {
             send(os, "RCPT TO: " + p.getEmail());
             waitForResponse(is);
          }
-         if (mail.getCc()!= null){
+         if (mail.getCc() != null) {
             for (Person p : mail.getCc().getMembers()) {
                send(os, "RCPT TO: " + p.getEmail());
                waitForResponse(is);
             }
          }
-         if (mail.getBcc()!=null){
+         if (mail.getBcc() != null) {
             for (Person p : mail.getBcc().getMembers()) {
                send(os, "RCPT TO: " + p.getEmail());
                waitForResponse(is);
@@ -74,7 +74,7 @@ public class SMTPClient {
       do {
          message = is.readLine();
          //LOG.info(message);
-      } while (message != null && !(message.contains("220 ") || message.contains("250 ")|| message.contains("354 ")));
+      } while (message != null && !(message.contains("220 ") || message.contains("250 ") || message.contains("354 ")));
    }
 
    private void send(PrintWriter os, String message) {
