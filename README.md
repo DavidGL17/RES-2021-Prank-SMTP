@@ -6,9 +6,9 @@ Ce projet fournit une application client en Java pour créer des prank par mail.
 
 ## Instruction d'installation du serveur SMTP sur Docker
 
-Pour utiliser cette application, il vous faudra un serveur SMTP qui pourra recevoir ces mails. Si vous voulez avant de envoyer vos mails vérifier que le procédé se déroule sans encombre, nous avons mis a votre disposition un serveur SMPT test, encapsulé dans une image docker. Ce serveur est tiré du projet [MockMock](https://github.com/tweakers/MockMock). Ce serveur vous permet de lui envoyer des mails, et de consulter sur une page web le contenu des mails reçus, et de vérifier que ceux-ci sont bien reçus.
+Pour utiliser cette application, il vous faudra un serveur SMTP qui pourra recevoir ces mails. Si vous voulez avant d'envoyer vos mails vérifier que le procédé se déroule sans encombre, nous avons mis a votre disposition un serveur SMTP test, encapsulé dans une image docker. Ce serveur est tiré du projet [MockMock](https://github.com/tweakers/MockMock). Ce serveur vous permet de lui envoyer des mails, et de consulter sur une page web le contenu des mails reçus, et de vérifier que ceux-ci sont bien reçus.
 
-Pour pouvoir accéder a ce serveur, il suffit d'aller dans le dossier docker et exécuter le script **build-image.sh**, qui va créer l'image contenant le serveur MockMock. Puis, en éxécutant le script **run-containers.sh** le container contenant le serveur MockMock sera lancé. Pour vous connecter a ce serveur, il suffira de vous connecter en loclahost aux ports :  
+Pour pouvoir accéder a ce serveur, il suffit d'aller dans le dossier docker et exécuter le script **build-image.sh**, qui va créer l'image contenant le serveur MockMock. Puis, en exécutant le script **run-containers.sh** le container contenant le serveur MockMock sera lancé. Pour vous connecter a ce serveur, il suffira de vous connecter en loclahost aux ports :  
 
 - 8282 pour avoir l'affichage sur une page des mails entrant dans le serveur.
 
