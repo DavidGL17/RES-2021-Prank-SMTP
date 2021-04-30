@@ -43,6 +43,18 @@ public class SMTPClient {
             send(os, "RCPT TO: " + p.getEmail());
             waitForResponse(is);
          }
+         if (mail.getCc()!= null){
+            for (Person p : mail.getCc().getMembers()) {
+               send(os, "RCPT TO: " + p.getEmail());
+               waitForResponse(is);
+            }
+         }
+         if (mail.getBcc()!=null){
+            for (Person p : mail.getBcc().getMembers()) {
+               send(os, "RCPT TO: " + p.getEmail());
+               waitForResponse(is);
+            }
+         }
          // TODO: 16 avr. 2021 add cc and bcc
          send(os, "DATA");
          waitForResponse(is);
