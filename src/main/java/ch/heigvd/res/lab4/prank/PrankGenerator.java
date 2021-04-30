@@ -1,6 +1,6 @@
 /*
  * @File PrankGenerator.java
- * @Authors : David González León
+ * @Authors : David González León, Jade Gröli
  * @Date 16 avr. 2021
  */
 package ch.heigvd.res.lab4.prank;
@@ -21,6 +21,13 @@ public class PrankGenerator {
         this.configurationManager = configurationManager;
     }
 
+   /**
+    * @brief this method creates several groups of person with their email addresses from the victims.txt files.
+    * One person is designate as the sender and all the other are receivers. A message from the messages.txt file is
+    * chosen and send to all the receivers from the sender. The composition of the groups and the selected message are
+    * randomly chosen. 
+    * @return the list of all the pranked mails which has been sent
+    */
     public ArrayList<Mail> generatePranks() {
         ArrayList<Mail> mails = new ArrayList<>();
         Group bcc = new Group();
