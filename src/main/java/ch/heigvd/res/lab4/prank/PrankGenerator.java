@@ -22,7 +22,7 @@ public class PrankGenerator {
    }
 
    /**
-    * @brief this method creates several groups of person with their email addresses from the file victims.txt files.
+    * @brief this method creates several groups of person with their email addresses from the victims.txt files.
     * One person is designate as the sender and all the other are receivers. A message from the messages.txt file is
     * chosen and send to all the receivers from the sender. The composition of the groups and the selected message are
     * randomly chosen. 
