@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>ch.heigvd.res.lab4</OriginalElement>
+  <nodes>
+    <node x="313.0" y="545.0">ch.heigvd.res.lab4.SMTPClient</node>
+    <node x="403.5601851851852" y="129.0">ch.heigvd.res.lab4.prank.mail.Group</node>
+    <node x="494.5601851851852" y="0.0">ch.heigvd.res.lab4.prank.mail.Person</node>
+    <node x="-147.1619748943574" y="280.0">ch.heigvd.res.lab4.config.Options</node>
+    <node x="0.0" y="589.0">ch.heigvd.res.lab4.prank.PrankGenerator</node>
+    <node x="137.10648148148147" y="129.5">ch.heigvd.res.lab4.prank.mail.Message</node>
+    <node x="149.3935185185185" y="787.0">ch.heigvd.res.lab4.Launcher</node>
+    <node x="103.10648148148147" y="283.0">ch.heigvd.res.lab4.config.ConfigurationManager</node>
+    <node x="366.10648148148147" y="294.5">ch.heigvd.res.lab4.prank.mail.Mail</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="ch.heigvd.res.lab4.prank.mail.Group" target="ch.heigvd.res.lab4.prank.mail.Person" relationship="TO_MANY">
+      <point x="0.0" y="-51.0" />
+      <point x="503.0601851851852" y="104.0" />
+      <point x="558.0601851851852" y="104.0" />
+      <point x="0.0" y="39.5" />
+    </edge>
+    <edge source="ch.heigvd.res.lab4.config.ConfigurationManager" target="ch.heigvd.res.lab4.prank.mail.Message" relationship="TO_MANY">
+      <point x="0.0" y="-106.0" />
+      <point x="0.0" y="50.5" />
+    </edge>
+    <edge source="ch.heigvd.res.lab4.prank.mail.Mail" target="ch.heigvd.res.lab4.prank.mail.Message" relationship="TO_ONE">
+      <point x="-95.33333333333326" y="-94.5" />
+      <point x="413.7731481481482" y="257.0" />
+      <point x="224.60648148148147" y="257.0" />
+      <point x="0.0" y="50.5" />
+    </edge>
+    <edge source="ch.heigvd.res.lab4.prank.mail.Mail" target="ch.heigvd.res.lab4.prank.mail.Person" relationship="TO_ONE">
+      <point x="95.33333333333337" y="-94.5" />
+      <point x="604.4398148148148" y="257.0" />
+      <point x="613.0601851851852" y="257.0" />
+      <point x="613.0601851851852" y="104.0" />
+      <point x="558.0601851851852" y="104.0" />
+      <point x="0.0" y="39.5" />
+    </edge>
+    <edge source="ch.heigvd.res.lab4.prank.PrankGenerator" target="ch.heigvd.res.lab4.config.ConfigurationManager" relationship="TO_ONE">
+      <point x="0.0" y="-51.0" />
+      <point x="146.0" y="520.0" />
+      <point x="224.60648148148147" y="520.0" />
+      <point x="0.0" y="106.0" />
+    </edge>
+    <edge source="ch.heigvd.res.lab4.Launcher" target="ch.heigvd.res.lab4.prank.PrankGenerator" relationship="TO_ONE">
+      <point x="-97.33333333333331" y="-73.0" />
+      <point x="198.0601851851852" y="761.0" />
+      <point x="146.0" y="761.0" />
+      <point x="0.0" y="51.0" />
+    </edge>
+    <edge source="ch.heigvd.res.lab4.prank.mail.Mail" target="ch.heigvd.res.lab4.prank.mail.Group" relationship="TO_ONE">
+      <point x="0.0" y="-94.5" />
+      <point x="509.10648148148147" y="257.0" />
+      <point x="503.0601851851852" y="257.0" />
+      <point x="0.0" y="51.0" />
+    </edge>
+    <edge source="ch.heigvd.res.lab4.Launcher" target="ch.heigvd.res.lab4.config.ConfigurationManager" relationship="TO_ONE">
+      <point x="0.0" y="-73.0" />
+      <point x="295.3935185185185" y="761.0" />
+      <point x="302.5" y="761.0" />
+      <point x="302.5" y="520.0" />
+      <point x="224.60648148148147" y="520.0" />
+      <point x="0.0" y="106.0" />
+    </edge>
+    <edge source="ch.heigvd.res.lab4.Launcher" target="ch.heigvd.res.lab4.SMTPClient" relationship="TO_ONE">
+      <point x="97.33333333333331" y="-73.0" />
+      <point x="392.72685185185185" y="761.0" />
+      <point x="441.5" y="761.0" />
+      <point x="0.0" y="95.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic" zoom="0.7817418677859391" showDependencies="true" x="252.5" y="466.5" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Constructors</Category>
+    <Category>Fields</Category>
+    <Category>Inner Classes</Category>
+    <Category>Methods</Category>
+    <Category>Properties</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
