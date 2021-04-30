@@ -45,6 +45,8 @@ Ceci lance le client en mode interactif. Pour lancer le client en mode automatiq
 java -jar Labo04-SMTP-1.0-SNAPSHOT-launcher.jar -noui
 ```
 
+Si vous voulez bouger le fichier .jar dans un autre dossier, vous devez bouger avec lui le dossier config. Ce dossier doit toujours se trouver avec le .jar pour qu'il puisse fonctionner correctement.
+
 ## Fonctionnement du client
 
 Le client va créer un nombre défini de groupe en choisissant aléatoirement des adresses mail dans la liste victims.txt pour désigner un expéditeur et plusieurs destinataires (2 au minimum). Le contenu du mail est lui aussi choisi aléatoirement parmi les messages présents dans le fichier messages.txt
