@@ -3,7 +3,7 @@
  * @Authors : David González León, Jade Gröli
  * @Date 16 avr. 2021
  */
-package ch.heigvd.res.lab4.prank.mail;
+package ch.heigvd.res.lab4.mail;
 
 import lombok.Getter;
 

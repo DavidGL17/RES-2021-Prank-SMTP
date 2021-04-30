@@ -8,8 +8,8 @@ package ch.heigvd.res.lab4;
 import ch.heigvd.res.lab4.config.ConfigurationManager;
 import ch.heigvd.res.lab4.config.Options;
 import ch.heigvd.res.lab4.prank.PrankGenerator;
-import ch.heigvd.res.lab4.prank.mail.Mail;
-import ch.heigvd.res.lab4.prank.mail.Message;
+import ch.heigvd.res.lab4.mail.Mail;
+import ch.heigvd.res.lab4.mail.Message;
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -30,9 +30,11 @@ public class Launcher {
       if (args.length == 1 && args[0].equals("-noui")) { //sans ui
          client = new SMTPClient(configurationManager.getSmtpServerAddress(), configurationManager.getSmtpServerPort());
          ArrayList<Mail> mails = generator.generatePranks();
+         System.out.println("Starting to send the mails...");
          for (Mail m : mails) {
             client.sendMail(m);
          }
+         System.out.println("Mails sent!");
       } else {//avec ui
          System.out.println("Welcome to the prank generator. This application can allow you to send prank mails to " +
                             "predifined victims. Bellow are your current options : ");

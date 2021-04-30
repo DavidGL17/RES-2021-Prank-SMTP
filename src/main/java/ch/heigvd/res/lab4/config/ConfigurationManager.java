@@ -5,7 +5,7 @@
  */
 package ch.heigvd.res.lab4.config;
 
-import ch.heigvd.res.lab4.prank.mail.Message;
+import ch.heigvd.res.lab4.mail.Message;
 import lombok.Getter;
 
 import java.io.*;
