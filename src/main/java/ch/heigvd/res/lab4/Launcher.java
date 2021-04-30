@@ -8,8 +8,8 @@ package ch.heigvd.res.lab4;
 import ch.heigvd.res.lab4.config.ConfigurationManager;
 import ch.heigvd.res.lab4.config.Options;
 import ch.heigvd.res.lab4.prank.PrankGenerator;
-import ch.heigvd.res.lab4.prank.mail.Mail;
-import ch.heigvd.res.lab4.prank.mail.Message;
+import ch.heigvd.res.lab4.mail.Mail;
+import ch.heigvd.res.lab4.mail.Message;
 
 import java.util.ArrayList;
 import java.util.Scanner;

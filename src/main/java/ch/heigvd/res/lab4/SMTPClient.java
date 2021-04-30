@@ -5,9 +5,9 @@
  */
 package ch.heigvd.res.lab4;
 
-import ch.heigvd.res.lab4.prank.mail.Group;
-import ch.heigvd.res.lab4.prank.mail.Mail;
-import ch.heigvd.res.lab4.prank.mail.Person;
+import ch.heigvd.res.lab4.mail.Group;
+import ch.heigvd.res.lab4.mail.Mail;
+import ch.heigvd.res.lab4.mail.Person;
 
 import java.io.BufferedReader;
 import java.io.IOException;

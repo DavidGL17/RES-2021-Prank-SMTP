@@ -67,7 +67,6 @@ On peut ensuite lancer l'application et suivre les instructions qui s'affichent.
 Si l'application n'est pas lancée en mode intéractif, le client enverra les mails, puis s'arretera.
 
 
-
 ## Démonstration du fonctionnement
 
 Une fois les fichiers messages.txt et victims.txt complétés, on lance l'application. Au lancement, on obtient le résultat suivant :
@@ -85,3 +84,14 @@ Une confirmation d'envoi des différents mails s'affichent alors. On peut alors 
 Pour quitter l'application, il suffit de rentrer "stop" sur la console :
 
 ![](C:\Users\jaden\Documents\HES BA2\S4\RES_Reseaux\RES-2021-Prank-SMTP\figures\step4.png)
+
+## Implémentation 
+
+La structure de notre application tourne autour de la classe Launcher, qui contient le main de notre programme. Ce main utilise les 3 classes principales de notre application : 
+- ConfigurationManager, qui permet d'extraire les différentes options de configuration
+- SMTPClient, le client smtp qui permet l'envoie de mails
+- PrankGenerator, qui génère des mails prank en se basant sur les informations fournies par ConfigurationManager
+
+Ces 3 classes utilisent les fonctionalités offertes par le package mail, qui lui permet la modélisation de mails, personnes, messages et groupes.
+
+La description des différentes méthodes des classes que nous avons implémentées se trouve sous la forme de javadoc dans le code.
