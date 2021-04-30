@@ -1,6 +1,6 @@
 /*
  * @File ConfigurationManager.java
- * @Authors : David González León
+ * @Authors : David González León, Jade Gröli
  * @Date 16 avr. 2021
  */
 package ch.heigvd.res.lab4.config;
@@ -12,6 +12,9 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.Properties;
 
+/**
+ * The class that manages the configurations of the PrankApp
+ */
 public class ConfigurationManager {
    @Getter private ArrayList<Message> messages;
    @Getter private ArrayList<String> victims;
@@ -20,6 +23,9 @@ public class ConfigurationManager {
    @Getter private int numberOfGroups;
    @Getter private String witnessToCC;
 
+   /**
+    * Instantiates a new Configuration manager, and loads the different settings from the config directory
+    */
    public ConfigurationManager() {
       try {
          //Get properties
@@ -46,8 +52,6 @@ public class ConfigurationManager {
          //Get messages
          reader = new BufferedReader(new FileReader(rootPath + "/messages.txt"));
          loadMessages(reader);
-      } catch (FileNotFoundException e) {
-         e.printStackTrace();
       } catch (IOException e) {
          e.printStackTrace();
       }
