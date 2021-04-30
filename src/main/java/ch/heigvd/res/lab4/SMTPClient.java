@@ -1,6 +1,6 @@
 /*
  * @File SMTPClient.java
- * @Authors : David González León
+ * @Authors : David González León, Jade Gröli
  * @Date 16 avr. 2021
  */
 package ch.heigvd.res.lab4;
@@ -16,6 +16,9 @@ import java.io.PrintWriter;
 import java.net.Socket;
 import java.util.logging.Logger;
 
+/**
+ * A class implementing a SMTP client
+ */
 public class SMTPClient {
 
    private final String serverAdress;
@@ -23,11 +26,22 @@ public class SMTPClient {
    private final Logger LOG = Logger.getLogger(SMTPClient.class.getName());
 
 
+   /**
+    * Instantiates a new Smtp client.
+    *
+    * @param serverAdress the adress of the destination server
+    * @param serverPort   the port of the server
+    */
    public SMTPClient(String serverAdress, int serverPort) {
       this.serverAdress = serverAdress;
       this.serverPort = serverPort;
    }
 
+   /**
+    * Sends a mail to the given server
+    *
+    * @param mail the mail to send
+    */
    public void sendMail(Mail mail) {
       try {
          Socket socket = new Socket(serverAdress, serverPort);
@@ -43,13 +57,13 @@ public class SMTPClient {
             send(os, "RCPT TO: " + p.getEmail());
             waitForResponse(is);
          }
-         if (mail.getCc()!= null){
+         if (mail.getCc() != null) {
             for (Person p : mail.getCc().getMembers()) {
                send(os, "RCPT TO: " + p.getEmail());
                waitForResponse(is);
             }
          }
-         if (mail.getBcc()!=null){
+         if (mail.getBcc() != null) {
             for (Person p : mail.getBcc().getMembers()) {
                send(os, "RCPT TO: " + p.getEmail());
                waitForResponse(is);
@@ -69,13 +83,29 @@ public class SMTPClient {
       }
    }
 
+   /**
+    * Waits for an answer from the server. Function used to debug the app, using logging to check the message sent by
+    * the server
+    *
+    * @param is the input strem
+    *
+    * @throws IOException
+    */
    private void waitForResponse(BufferedReader is) throws IOException {
       String message;
       do {
          message = is.readLine();
          //LOG.info(message);
-      } while (message != null && !(message.contains("220 ") || message.contains("250 ")|| message.contains("354 ")));
+      } while (message != null && !(message.contains("220 ") || message.contains("250 ") || message.contains("354 ")));
    }
+
+   /**
+    * Sends a message to the server. Function used to debug the app, using logging to check the message sent to the
+    * server
+    *
+    * @param os      the output stream
+    * @param message the message to send
+    */
 
    private void send(PrintWriter os, String message) {
       os.println(message);

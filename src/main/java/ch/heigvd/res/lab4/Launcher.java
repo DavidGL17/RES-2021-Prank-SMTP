@@ -1,6 +1,6 @@
 /*
  * @File Launcher.java
- * @Authors : David González León
+ * @Authors : David González León, Jade Gröli
  * @Date 16 avr. 2021
  */
 package ch.heigvd.res.lab4;
@@ -19,7 +19,6 @@ import java.util.Scanner;
  * lui présente les options actuelles, et lui propose de les changer et redémarrer, ou de lancer avec go, et de
  * stopper avec stop
  */
-
 public class Launcher {
    public static void main(String[] args) {
       ConfigurationManager configurationManager = new ConfigurationManager();
@@ -67,15 +66,15 @@ public class Launcher {
                }
             }
             System.out.println("Starting to send the mails...");
-            SMTPClient client =
-                    new SMTPClient(configurationManager.getSmtpServerAddress(), configurationManager.getSmtpServerPort());
+            SMTPClient client = new SMTPClient(configurationManager.getSmtpServerAddress(),
+                                               configurationManager.getSmtpServerPort());
             PrankGenerator generator = new PrankGenerator(configurationManager);
             ArrayList<Mail> mails = generator.generatePranks();
             int mailCounter = 1;
             for (Mail m : mails) {
-               System.out.println("Sending mail n°"+mailCounter+"...");
+               System.out.println("Sending mail n°" + mailCounter + "...");
                client.sendMail(m);
-               System.out.println("Mail "+mailCounter+" sent!");
+               System.out.println("Mail " + mailCounter + " sent!");
                mailCounter++;
             }
             System.out.println("Mails sent!");
