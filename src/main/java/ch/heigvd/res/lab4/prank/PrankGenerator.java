@@ -21,6 +21,13 @@ public class PrankGenerator {
       this.configurationManager = configurationManager;
    }
 
+   /**
+    * @brief this method creates several groups of person with their email addresses from the file victims.txt files.
+    * One person is designate as the sender and all the other are receivers. A message from the messages.txt file is
+    * chosen and send to all the receivers from the sender. The composition of the groups and the selected message are
+    * randomly chosen. 
+    * @return the list of all the pranked mails which has been sent
+    */
    public ArrayList<Mail> generatePranks() {
       // TODO: 16 avr. 2021 add prank generation getting the victims and messages from the configurationManager
       ArrayList<Mail> mails = new ArrayList<>();
