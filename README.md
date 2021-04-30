@@ -65,3 +65,23 @@ Le client va créer un nombre défini de groupe en choisissant aléatoirement de
 On peut ensuite lancer l'application et suivre les instructions qui s'affichent. Si l'application est lancée en mode intéractif, un récapitulatif de la configuration, la liste des adresses mails et la liste des messages s'afficheront. Si tout est bien configuré, il faut entrer "ok" et la liste des mails envoyés avec les différents expéditeurs et destinataires s'afficheront. Une dernière confirmation d'envoi des mails s'affichera. On peut ensuite soit recommencer en entrant "go", soit quitter le programme en entrant "stop". Une fois les mails envoyés, l'utilisateur aura la possibilité de relancer de nouveau des mails (avec des groupes différents tirés aléatoirement) ou d'arreter le programme.
 
 Si l'application n'est pas lancée en mode intéractif, le client enverra les mails, puis s'arretera.
+
+
+
+## Démonstration du fonctionnement
+
+Une fois les fichiers messages.txt et victims.txt complétés, on lance l'application. Au lancement, on obtient le résultat suivant :
+
+![](C:\Users\jaden\Documents\HES BA2\S4\RES_Reseaux\RES-2021-Prank-SMTP\figures\step1.png)
+
+La liste des victimes choisies s'affiche ainsi que la liste des messages qui serviront de prank. Si l'utilisateur est d'accord, il écrit "go" dans la console :
+
+![](C:\Users\jaden\Documents\HES BA2\S4\RES_Reseaux\RES-2021-Prank-SMTP\figures\step2.png)
+
+Une confirmation d'envoi des différents mails s'affichent alors. On peut alors vérifier le bon déroulement de l'opération avec MockMock en vérifiant parmi les différents groupes l'expéditeur, les destinataires et le message de chaque mail :
+
+![](C:\Users\jaden\Documents\HES BA2\S4\RES_Reseaux\RES-2021-Prank-SMTP\figures\step3.png)
+
+Pour quitter l'application, il suffit de rentrer "stop" sur la console :
+
+![](C:\Users\jaden\Documents\HES BA2\S4\RES_Reseaux\RES-2021-Prank-SMTP\figures\step4.png)
