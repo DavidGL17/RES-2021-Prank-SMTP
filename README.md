@@ -31,6 +31,16 @@ Une fois le repository cloné il faut configurer le projet. Les seuls fichiers a
 
   On peut y écrire le contenu des mails et les séparer par "==". Ne pas oublier d'en mettre après le dernier mail sans aucun autre caractère (espace, retour à la ligne...). 
 
+  Les messages doivent avoir la structure suivante pour qu'ils soient bien lus par l'application : 
+
+  ```
+  Subject: le sujet du mail
+
+  Le corps du mail
+  ```
+
+  Des exemples se trouvent par défaut dans le fichier message.txt
+
   S'il y a plus de groupes que de messages, l'application reutilisera certains messages.
 
 - Fichier "victims.txt"
