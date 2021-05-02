@@ -59,12 +59,12 @@ public class ConfigurationManager {
 
    private void loadMessages(BufferedReader reader) throws IOException {
       messages = new ArrayList<>();
-      String subject = reader.readLine();
+      String subject = reader.readLine()+"\n";
       do {
          String body = "";
          String line = reader.readLine();
          while (!line.equals("==")) {
-            body += line;
+            body += line+"\n";
             line = reader.readLine();
          }
          Message m = new Message(subject, body);
